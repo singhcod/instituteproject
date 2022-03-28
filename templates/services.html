@@ -1,0 +1,99 @@
+{%  extends 'base.html' %}
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+{% block content %}
+    <style>
+    h3{
+        color: darkblue;
+        background-color: gold;
+    }
+    table {
+  overflow: hidden;
+}
+
+tr:hover {
+  background-color: #ee82ee;
+}
+
+td, th {
+  position: relative;
+}
+td:hover::after,
+th:hover::after {
+  content: "";
+  position: absolute;
+  background-color: #ee82ee;
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+    body{
+        background-color: cyan;
+    }
+    </style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+
+           {% include 'course_table.html' %}
+
+        </div>
+        <div class="col-md-4"><br>
+
+            {% include 'course_highlight.html' %}
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="static/images/mypic.jpg"height="70%" width="70%">
+        </div>
+        <div class="col-md-3">
+            <img src="static/images/singh.jpg" height="70%" width="70%">
+        </div>
+        <div class="col-md-3">
+            <img src="static/images/pic.jpg" height="70%" width="70%">
+        </div>
+        <div class="col-md-3">
+            <img src="static/images/pic1.jpg"  height="70%" width="70%">
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+      <div class="row">
+        <div class="col-md-3">
+            <img src="static/images/mypic.jpg"height="40%" width="40%">
+        </div>
+        <div class="col-md-3">
+            <img src="static/images/singh.jpg" height="30%" width="30%">
+        </div>
+        <div class="col-md-3">
+            <img src="static/images/pic.jpg" height="30%" width="30%">
+        </div>
+        <div class="col-md-3">
+            <img src="static/images/pic1.jpg"  height="30%" width="30%">
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}
+</body>
+</html>

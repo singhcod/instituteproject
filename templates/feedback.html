@@ -1,0 +1,66 @@
+{%  extends 'base.html' %}
+<html>
+<head>
+    <titile></titile>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% block content %}
+<style>
+    b{
+        color: deepskyblue;
+    }
+    body{
+        background-color: aquamarine;
+    }
+    h4{
+        color: blue;
+        font-family: cursive;
+        background-color: gold;
+    }
+</style>
+
+<div class="container_fluid">
+    <div class="row">
+        <div class=" offset-md-4 col-md-4">
+            <h4> Plese Give Your Feedback...</h4>
+            <form method="POST">
+                {% csrf_token %}
+                <label> Enter Your Name:</label>
+                <input type="text" class="form-control" name="name">
+
+                <label> Enter Rating:</label>
+                <input type="number" class="form-control" name="rating">
+
+                <label> Enter Your Feedback:</label>
+                <textarea name="feedback" cols="65" rows="10"></textarea>
+
+                <center>
+                <input type="submit" value="submit" class="btn btn-success btn-sm">
+                <input type="reset" value="clear" class="btn btn-danger btn-sm">
+                </center>
+            </form>
+              {% if singh %}
+                <h4> Avalable feedbacks are..</h4>
+                {% for i in singh %}
+                 {% if i.rating >= 5 and i.rating <= 10 %}
+                    <b>Name: {{ i.name|capfirst }}</b> <br>
+                       Rating: {{ i.rating}}<br>
+                       Feedback: {{ i.feedback }}<br><br>
+                 {% endif %}
+                {% endfor %}
+              {% else %}
+            <h3> no feedbacks are available</h3>
+
+              {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

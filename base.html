@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'cdnlines.html' %}
+
+</head>
+<style>
+
+    h1{
+        background-color: blue;
+        font-family: cursive;
+    }
+</style>
+<body>
+{% include 'navbar.html' %}
+<h1> Welcome To Narayana Tech House:</h1>
+
+{% block content %}
+
+{% endblock %}
+
+<h4> Thank you visit here:</h4>
+
+</body>
+</html>

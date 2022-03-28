@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if courses %}
+    <h3 class="text-center">Available Courses...</h3>
+    <table class="table table-bordered text-center">
+        <thead class="bg-success text-white">
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Start Time</th>
+            <th>Start Date</th>
+            <th>Duration</th>
+            <th>Trainer Name</th>
+            <th>Trainer exp</th>
+        </tr>
+        </thead>
+        <tbody class="bg-dark text-white">
+
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.course_id }}</td>
+                    <td>{{ course.course_name }}</td>
+                    <td> {{ course.start_time }}</td>
+                    <td> {{ course.start_date }}</td>
+                    <td> {{ course.duration }}</td>
+                    <td> {{ course.trainer_name}}</td>
+                    <td>{{ course.trainer_exep}}</td>
+                    </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+    {% else %}
+    <h3> no data available</h3>
+
+
+{% endif %}
+
+
+</body>
+</html>
